@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itinerario Corea ✕ Japón — 3 al 22 de Julio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF7F1;
+    --ink:#2A2722;
+    --ink-soft:#7A7164;
+    --card:#FFFFFF;
+    --border:#E7DECC;
+    --korea:#1F3D5C;
+    --japan:#C1432A;
+    --free:#D9A441;
+    --free-bg:#FCF3DF;
+    --transit:#7E9C97;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    padding:24px 16px 80px;
+  }
+  .wrap{max-width:760px;margin:0 auto;}
+
+  header{margin-bottom:24px;}
+  header h1{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:clamp(28px,6vw,40px);
+    margin:0 0 4px;
+    letter-spacing:-0.5px;
+  }
+  header p{margin:0;color:var(--ink-soft);font-size:14px;}
+
+  /* Ruta */
+  .ruta{
+    display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+    margin:18px 0;
+  }
+  .ruta .chip{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600;
+    font-family:'Fraunces',serif;
+  }
+  .ruta .arrow{color:var(--ink-soft);font-size:13px;}
+
+  /* Aviso */
+  .aviso{
+    background:var(--free-bg);
+    border:1px solid var(--free);
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:14px;
+    margin-bottom:24px;
+  }
+  .aviso strong{color:var(--japan);}
+
+  /* Leyenda */
+  .leyenda{
+    display:flex;flex-wrap:wrap;gap:14px;
+    font-size:12.5px;color:var(--ink-soft);
+    margin-bottom:8px;
+  }
+  .leyenda span{display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .dot.fijo{background:var(--korea);}
+  .dot.libre{background:var(--free);}
+  .dot.transito{background:var(--transit);}
+
+  /* controles */
+  .controles{margin:16px 0 8px;display:flex;gap:8px;}
+  .controles button{
+    font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;
+    border:1px solid var(--border);background:var(--card);
+    border-radius:8px;padding:6px 12px;cursor:pointer;color:var(--ink);
+  }
+  .controles button:hover{border-color:var(--korea);}
+
+  /* Etapas */
+  .etapa{margin-top:28px;}
+  .etapa-titulo{
+    font-family:'Fraunces',serif;font-weight:600;font-size:18px;
+    border-bottom:2px solid var(--ink);padding-bottom:4px;margin-bottom:10px;
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .etapa-titulo small{font-family:'Inter',sans-serif;font-weight:500;font-size:12px;color:var(--ink-soft);}
+
+  /* Día */
+  details.dia{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:4px solid var(--korea);
+    border-radius:8px;
+    margin-bottom:8px;
+    overflow:hidden;
+  }
+  details.dia.libre{border-left-color:var(--free);background:var(--free-bg);}
+  details.dia.transito{border-left-color:var(--transit);}
+
+  details.dia > summary{
+    list-style:none;cursor:pointer;padding:12px 14px;
+    display:flex;align-items:center;gap:10px;
+    font-size:14px;
+  }
+  details.dia > summary::-webkit-details-marker{display:none;}
+  summary .fecha{
+    font-family:'Fraunces',serif;font-weight:600;font-size:13px;
+    min-width:78px;color:var(--ink-soft);flex-shrink:0;
+  }
+  summary .titulo{font-weight:600;flex:1;}
+  summary .badge{
+    font-size:11px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.04em;color:var(--ink-soft);
+    border:1px solid var(--border);border-radius:6px;padding:2px 6px;
+    flex-shrink:0;
+  }
+  summary::after{
+    content:"＋";font-size:14px;color:var(--ink-soft);margin-left:4px;
+  }
+  details[open] > summary::after{content:"－";}
+
+  .contenido{padding:0 14px 14px 14px;font-size:13.5px;color:var(--ink);}
+  .contenido p{margin:6px 0;}
+  .contenido .hotel{color:var(--ink-soft);font-size:12.5px;margin-top:8px;}
+  .ideas{
+    margin-top:10px;padding:10px 12px;
+    background:rgba(0,0,0,0.03);border-radius:6px;
+    font-size:12.5px;color:var(--ink-soft);
+  }
+  .ideas strong{color:var(--ink);}
+  .ideas ul{margin:6px 0 0 18px;padding:0;}
+  .ideas li{margin-bottom:3px;}
+
+  footer{margin-top:36px;font-size:12px;color:var(--ink-soft);text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Corea ✕ Japón</h1>
+  <p>3 – 22 de julio, 2026 · Itinerario base de la agencia + días libres por planificar</p>
+</header>
+
+<div class="ruta">
+  <span class="chip">🇨🇷 San José</span><span class="arrow">→</span>
+  <span class="chip">🇰🇷 Seúl</span><span class="arrow">→</span>
+  <span class="chip">🇯🇵 Osaka</span><span class="arrow">→</span>
+  <span class="chip">Nara</span><span class="arrow">→</span>
+  <span class="chip">Kioto</span><span class="arrow">→</span>
+  <span class="chip">Nagoya</span><span class="arrow">→</span>
+  <span class="chip">Atami</span><span class="arrow">→</span>
+  <span class="chip">Monte Fuji</span><span class="arrow">→</span>
+  <span class="chip">Tokio</span>
+</div>
+
+<div class="leyenda">
+  <span><i class="dot fijo"></i> Actividad fija (agencia)</span>
+  <span><i class="dot libre"></i> Día libre — por planificar</span>
+  <span><i class="dot transito"></i> Traslado / vuelo</span>
+</div>
+
+<div class="controles">
+  <button onclick="document.querySelectorAll('details').forEach(d=>d.open=true)">Expandir todo</button>
+  <button onclick="document.querySelectorAll('details').forEach(d=>d.open=false)">Colapsar todo</button>
+</div>
+
+<!-- ===================== VUELOS ===================== -->
+<div class="etapa">
+  <div class="etapa-titulo">✈️ Vuelos de ida <small>3–5 jul</small></div>
+
+  <details class="dia transito">
+    <summary><span class="fecha">Vie 3 Jul</span><span class="titulo">🛫 Salida San José → Dallas, 11:40 pm</span><span class="badge">Vuelo</span></summary>
+    <div class="contenido"><p>Vuelo nocturno de Costa Rica a Dallas.</p></div>
+  </details>
+
+  <details class="dia transito">
+    <summary><span class="fecha">Sáb 4 Jul</span><span class="titulo">🛬 Llegada a Dallas, 5:00 am (conexión)</span><span class="badge">Vuelo</span></summary>
+    <div class="contenido"><p>Día de tránsito / espera de conexión en Dallas.</p></div>
+  </details>
+
+  <details class="dia transito">
+    <summary><span class="fecha">Dom 5 Jul</span><span class="titulo">🛫 Dallas → Seúl (11:20 am → 3:45 pm)</span><span class="badge">Vuelo</span></summary>
+    <div class="contenido">
+      <p>Llegada a Seúl a las 3:45 pm (hora local).</p>
+      <p class="hotel">🏨 Alojamiento: Seúl</p>
+    </div>
+  </details>
+</div>
+
+<!-- ===================== SEÚL ===================== -->
+<div class="etapa">
+  <div class="etapa-titulo">🇰🇷 Seúl <small>5–7 jul</small></div>
+
+  <details class="dia">
+    <summary><span class="fecha">Lun 6 Jul</span><span class="titulo">🏯 City tour: Palacio Gyeongbokgung + Bukchon Hanok Village</span><span class="badge">Fijo</span></summary>
+    <div class="contenido"><p class="hotel">🏨 Alojamiento: Seúl</p></div>
+  </details>
+
+  <details class="dia libre">
+    <summary><span class="fecha">Mar 7 Jul</span><span class="titulo">✅ Seúl: circuito Jongno → Myeongdong → Namsan → Gangnam → Hongdae</span><span class="badge">Confirmado</span></summary>
+    <div class="contenido">
+      <p class="hotel">🏨 Alojamiento: Seúl</p>
+      <p>⛅ <strong>Ojo con el clima:</strong> el 7 de julio cae justo en la franja más lluviosa del año en Seúl (primeros 10 días de julio = pico del monzón "jangma"). Llevar paragua/poncho siempre. Si llueve fuerte, el paseo de Cheonggyecheon puede cerrarse por seguridad — en ese caso, invertí el orden: arrancá por COEX/Starfield Library (techado) y dejá Namsan/Cheonggyecheon para cuando escampe.</p>
+      <div class="ideas">
+        <strong>🕐 Cronograma (norte → centro → sur → oeste, sin huecos grandes de traslado):</strong>
+        <ul>
+          <li><strong>8:00 am — Mercado Gwangjang</strong> (1h): desayuno callejero (bindaetteok, mayak kimbap). Llegar antes de las 9 am, solo efectivo.</li>
+          <li><strong>9:15 am — Ikseon-dong Hanok Village</strong> (45 min): 5 min a pie de Gwangjang, callejones hanok con cafés.</li>
+          <li>🚇 15 min metro</li>
+          <li><strong>10:15 am — Cheonggyecheon Stream</strong> (45 min): paseo del arroyo hacia el oeste (~1km).</li>
+          <li>🚶 15 min a pie</li>
+          <li><strong>11:15 am — Myeongdong</strong> (1h30, incluye almuerzo): K-beauty shopping, mañana = menos gente.</li>
+          <li>🚡 15 min cable car / 30 min caminando cuesta arriba</li>
+          <li><strong>1:00 pm — N Seoul Tower / Namsan</strong> (1h30): abre 10:30 am entre semana. 📌 <em>Reserva opcional:</em> en temporada alta conviene comprar el boleto del cable car con anticipación (<a href="https://www.klook.com/en-US/activity/91-namsan-cable-car-ticket-seoul/" target="_blank">Klook – Namsan Cable Car</a>) para saltar la fila.</li>
+          <li>🚇 40 min metro (Myeongdong → Samseong, línea 2 c/transbordo)</li>
+          <li><strong>3:30 pm — Bongeunsa Temple</strong> (1h): templo del 794 en pleno Gangnam.</li>
+          <li>🚶 5 min a pie</li>
+          <li><strong>4:30 pm — Starfield Library + COEX Mall</strong> (1h15): biblioteca gratis, ideal si llueve. Cena aquí.</li>
+          <li>🚇 45 min metro (Samseong → Hongik Univ., línea 2)</li>
+          <li><strong>7:00 pm — Hongdae</strong> (noche libre): street food, bares, ambiente joven.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>❌ Descartados (no entran ese día):</strong>
+        <ul>
+          <li><strong>Daehangno</strong> — fuera de ruta, solo cobra vida desde las 4pm (mejor para noche dedicada).</li>
+          <li><strong>Apgujeong</strong> — Gangnam + Bongeunsa ya cubren esa zona "ritzy".</li>
+          <li><strong>Sinchon</strong> — pegado a Hongdae, se puede sumar a pie si queda energía.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🎒 Tips generales:</strong>
+        <ul>
+          <li>T-Money card (~₩50,000 inicial) para metro/bus/taxi/conveniencias.</li>
+          <li>Naver Map (no Google Maps) — funciona offline parcial.</li>
+          <li>Metro cierra ~11:30pm, después usar Kakao T (taxi).</li>
+          <li>eSIM/SIM local en el aeropuerto (SK Telecom/KT, ~$8/semana).</li>
+          <li>Calzado cómodo — Namsan, Bongeunsa e Ikseon-dong tienen cuestas.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- ===================== OSAKA / NARA ===================== -->
+<div class="etapa">
+  <div class="etapa-titulo">🇯🇵 Osaka & Nara <small>8–11 jul</small></div>
+
+  <details class="dia transito">
+    <summary><span class="fecha">Mié 8 Jul</span><span class="titulo">✈️ Vuelo Seúl → Osaka</span><span class="badge">Vuelo</span></summary>
+    <div class="contenido"><p class="hotel">🏨 Alojamiento: Osaka</p></div>
+  </details>
+
+  <details class="dia">
+    <summary><span class="fecha">Jue 9 Jul</span><span class="titulo">⛩️ Nara: Templo Todai-ji</span><span class="badge">Fijo</span></summary>
+    <div class="contenido"><p class="hotel">🏨 Alojamiento: Osaka</p></div>
+  </details>
+
+  <details class="dia">
+    <summary><span class="fecha">Vie 10 Jul</span><span class="titulo">🏙️ City tour Osaka: Kuromon, Shinsaibashi, Dotonbori, Umeda Sky Building</span><span class="badge">Fijo</span></summary>
+    <div class="contenido"><p class="hotel">🏨 Alojamiento: Osaka</p></div>
+  </details>
+
+  <details class="dia libre">
+    <summary><span class="fecha">Sáb 11 Jul</span><span class="titulo">🟡 Osaka Sur: Sumiyoshi → Tennoji → Shin-Sekai</span><span class="badge">Tentativo</span></summary>
+    <div class="contenido">
+      <p class="hotel">🏨 Alojamiento: Osaka</p>
+      <p>⚠️ <strong>Pendiente:</strong> los horarios de arranque asumen hotel cerca de <strong>Namba/Dotonbori</strong>. Si el hotel queda en Umeda u otra zona, hay que recorrer los tiempos del primer tramo (probablemente +10-15 min).</p>
+      <div class="ideas">
+        <strong>🕐 Cronograma (sur de Osaka, sin repetir zonas del 10 de julio):</strong>
+        <ul>
+          <li><strong>8:30 am — Salida del hotel</strong> hacia Sumiyoshi Taisha (línea Nankai, ~15-20 min).</li>
+          <li><strong>9:00 am — Santuario Sumiyoshi Taisha</strong> (1h): uno de los santuarios sintoístas más antiguos de Japón, famoso por su puente rojo curvo (Sorihashi).</li>
+          <li>🚋 15-20 min en el tranvía retro Hankai (Sumiyoshi-torii-mae → Tennoji-ekimae) — experiencia en sí misma.</li>
+          <li><strong>10:30 am — Abeno Harukas (Harukas 300)</strong> (1h-1h30): mirador del edificio más alto de Japón, justo al lado de la estación Tennoji. 📌 <em>Reserva opcional:</em> entrada con descuento/sin fila por <a href="https://www.klook.com/en-US/activity/3179-harukas-300-osaka/" target="_blank">Klook – Harukas 300</a>.</li>
+          <li><strong>12:15 pm — Almuerzo</strong> en zona Tennoji/Abeno (ver opciones abajo 👇).</li>
+          <li>🚶 5 min a pie</li>
+          <li><strong>1:30 pm — MOFF Animal Café (Tennoji MIO)</strong> (1h-1h30): cafetería llena de gatos. 📌 <em>Para grupo de 4:</em> conviene reservar horario en su web (<a href="https://www.coo-pet.jp/" target="_blank">coo-pet.jp</a>, la cadena que opera MOFF) para evitar esperar afuera, sobre todo en sábado.</li>
+          <li><strong>3:00 pm — Tennoji Park / Zoo de Osaka</strong> (opcional, 1-1h30): para estirar la pierna, queda a 5-10 min a pie.</li>
+          <li>🚶 5-10 min a pie</li>
+          <li><strong>4:45 pm — Shin-Sekai</strong>: Torre Tsutenkaku (subir al mirador) y recorrido por las calles neón.</li>
+          <li><strong>7:00 pm — Cena de kushikatsu en Shin-Sekai</strong>, de noche con las luces encendidas — sustituye el festival Tenjin Matsuri (que es 24-25 jul, no aplica para esta fecha).</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🍴 Almuerzo — opciones budget-friendly cerca de Tennoji/Abeno (entre Abeno Harukas y MOFF):</strong>
+        <ul>
+          <li><strong>Abeno Takoyaki Yamachan</strong> — el takoyaki más famoso de la zona Abeno-Tennoji, súper económico (puestos desde ~¥500-600).</li>
+          <li><strong>Daiko Sushi</strong> (Jan-Jan Yokocho, Shinsekai) — sushi sencillo y barato en un callejón retro, ideal si quieren algo distinto al takoyaki.</li>
+          <li><strong>Food court de Abeno Harukas / Tennoji MIO</strong> — sets teishoku con A/C, buena opción si el calor ya pegó fuerte a esa hora.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🎒 Tips para hoy (Osaka):</strong>
+        <ul>
+          <li><strong>Tarjeta IC (ICOCA o Suica/Pasmo)</strong> — funciona en trenes, metro, buses y konbini de todo Japón (a diferencia de Corea, aquí no hace falta otra tarjeta). Se compra/recarga en cualquier estación.</li>
+          <li><strong>Google Maps SÍ funciona bien en Japón</strong> (a diferencia de Corea) — dale rutas de tren con anden y hora exacta, es la app principal a usar.</li>
+          <li><strong>Idioma:</strong> en zonas turísticas (Tennoji, Shinsekai) hay señalización en inglés, pero menos que en Tokio. La app <strong>Google Translate con cámara</strong> es clave para menús/letreros — apuntás y traduce en vivo. El personal de konbini suele entender inglés básico.</li>
+          <li><strong>Efectivo:</strong> Shinsekai y los puestos de comida callejera (kushikatsu, takoyaki) suelen ser solo efectivo o solo IC card — las tarjetas de crédito son menos comunes ahí que en malls.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>❌ Descartado:</strong>
+        <ul>
+          <li><strong>Festival Tenjin Matsuri</strong> — confirmado para el 24-25 de julio 2026, fuera de fechas (ya estaríamos en Tokio). Se sustituye por Shin-Sekai de noche.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- ===================== KIOTO ===================== -->
+<div class="etapa">
+  <div class="etapa-titulo">🇯🇵 Kioto <small>12–13 jul</small></div>
+
+  <details class="dia transito">
+    <summary><span class="fecha">Dom 12 Jul</span><span class="titulo">🚌 Traslado a Kioto: Fushimi Inari Taisha + Bosque de Bambú</span><span class="badge">Fijo</span></summary>
+    <div class="contenido"><p class="hotel">🏨 Alojamiento: Kioto</p></div>
+  </details>
+
+  <details class="dia libre">
+    <summary><span class="fecha">Lun 13 Jul</span><span class="titulo">🟡 Higashiyama a pie + kimono + Gion al atardecer</span><span class="badge">Tentativo</span></summary>
+    <div class="contenido">
+      <p class="hotel">🏨 Alojamiento: Kioto</p>
+      <p>🗺️ <strong>Buena noticia geográfica:</strong> Kiyomizu-dera, Sannenzaka/Ninenzaka, Kodai-ji, Nene-no-Michi y Miyagawa-cho están literalmente a 5-10 min a pie entre sí (todo el "distrito Higashiyama"). El reto no es la distancia, sino el calor de julio — Kioto es de las ciudades más calurosas de Japón en verano, así que arrancamos temprano.</p>
+      <div class="ideas">
+        <strong>🕐 Cronograma:</strong>
+        <ul>
+          <li><strong>7:00 am — Kiyomizu-dera</strong> (1h): abre 6 am; entrar antes de las 9 am evita el 80% de los tour-grupos y el calor fuerte.</li>
+          <li>🚶 10-15 min bajando por Sannenzaka/Ninenzaka (tiendas aún cerradas, ideal para fotos vacías).</li>
+          <li><strong>8:30 am — Alquiler de kimono</strong> (45 min): la mayoría abre ~9 am, justo al terminar Kiyomizu. Pedirlo aquí para usarlo todo el día por la zona. 📌 <em>Para grupo de 4:</em> reservar con anticipación (ej. <a href="https://www.kyoto-kimono-rental.com/" target="_blank">Yumeyakata</a> o <a href="https://kyoto-kimono-rental.com/okamoto/" target="_blank">Okamoto Kimono Rental</a>) — eligen tallas/diseños online y evitan quedarse sin opciones de su talla al llegar.</li>
+          <li>🚶 10-15 min volviendo a pie</li>
+          <li><strong>9:45 am — Sannenzaka / Ninenzaka en kimono</strong> (45 min): ahora con tiendas abiertas — fotos clásicas de Kioto.</li>
+          <li>🚶 5 min a pie</li>
+          <li><strong>10:30 am — Kodai-ji + Nene-no-Michi</strong> (1h): templo con jardines y bosque de bambú a escala menor, conecta directo con Nene-no-Michi.</li>
+          <li>🚶 10 min a pie</li>
+          <li><strong>11:45 am — Almuerzo</strong> en zona Gion/Higashiyama, con A/C — descanso del calor del mediodía (ver opciones abajo 👇).</li>
+          <li>🚶 5-10 min a pie</li>
+          <li><strong>1:30 pm — Yasaka Shrine + Hanamikoji-dori (Gion)</strong> (1h): calle icónica de casas de té.</li>
+          <li>🚶 10 min a pie</li>
+          <li><strong>2:45 pm — Miyagawa-cho</strong> (45 min): distrito de geishas, más tranquilo que Gion, buena luz de tarde.</li>
+          <li>🚶 5 min a pie</li>
+          <li><strong>3:45 pm — Gion Shirakawa</strong> (45 min): canal con sauces, uno de los rincones más fotogénicos de Kioto.</li>
+          <li><strong>~5:30 pm — Devolver el kimono</strong> (la mayoría de tiendas cierra ~6 pm).</li>
+          <li><strong>Noche — Cena en Pontocho</strong> (cruzando el río, 10-15 min a pie): callejón de restaurantes sobre el agua.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🍴 Almuerzo — opciones budget-friendly en Gion/Higashiyama:</strong>
+        <ul>
+          <li><strong>Kasagiya</strong> (sobre Sannenzaka) — teteria tradicional con mochi y matcha, atmósfera única, queda literalmente en el camino. Ideal si quieren algo ligero antes del almuerzo fuerte.</li>
+          <li><strong>Obanzai Sakuragawa</strong> (Gion) — comida casera kyotoense (obanzai), set de almuerzo saludable y económico.</li>
+          <li><strong>Omen Gion</strong> — udon casero con vegetales, clásico bien valorado, precio moderado-bajo.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🎏 Bonus opcional — Gion Matsuri (sin agobio):</strong>
+        <ul>
+          <li>Del 10 al 14 de julio se montan a mano (sin clavos) los carros flotantes del Gion Matsuri en la zona Karasuma/Shijo, al otro lado del río (~15-20 min a pie desde Pontocho/Gion). Se pueden ver de cerca sin las multitudes del Yoiyama (que es 14-16 jul). Si llegan con energía después de cenar en Pontocho, vale la pasada.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>💧 Tips de calor:</strong>
+        <ul>
+          <li>Llevar agua/abanico — las calles de Higashiyama son cuesta arriba y sin sombra en varios tramos.</li>
+          <li>El descanso del almuerzo (11:45am-1:30pm) está pensado para evitar el peor calor del mediodía caminando.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🎒 Tips para hoy (Kioto):</strong>
+        <ul>
+          <li><strong>ICOCA / Suica / Pasmo</strong> sirve igual que en Osaka — útil para los pocos tramos en metro/bus.</li>
+          <li><strong>Geta del kimono:</strong> son sandalias de madera, pueden rozar — llevar curitas/band-aids en la mochila por si acaso.</li>
+          <li><strong>Idioma:</strong> Higashiyama es muy turístico, casi todo tiene menú/cartel en inglés. Para los templos, los carteles explicativos suelen tener versión en inglés. Google Translate con cámara sigue siendo el respaldo para lo que no.</li>
+          <li><strong>Efectivo:</strong> templos y tiendas pequeñas de Sannenzaka/Ninenzaka muchas veces solo cash — sacar yenes el día anterior o en un konbini cercano.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- ===================== NAGOYA / ATAMI / FUJI ===================== -->
+<div class="etapa">
+  <div class="etapa-titulo">🇯🇵 Nagoya → Atami → Monte Fuji <small>14–16 jul</small></div>
+
+  <details class="dia transito">
+    <summary><span class="fecha">Mar 14 Jul</span><span class="titulo">🚌 Traslado a Nagoya: Castillo de Nagoya + Museo Toyota</span><span class="badge">Fijo</span></summary>
+    <div class="contenido"><p class="hotel">🏨 Alojamiento: Nagoya</p></div>
+  </details>
+
+  <details class="dia transito">
+    <summary><span class="fecha">Mié 15 Jul</span><span class="titulo">🚌 Traslado a Atami</span><span class="badge">Fijo</span></summary>
+    <div class="contenido"><p class="hotel">🏨 Alojamiento: Atami</p></div>
+  </details>
+
+  <details class="dia transito">
+    <summary><span class="fecha">Jue 16 Jul</span><span class="titulo">🗻 Tour Monte Fuji + Lago Kawaguchiko → traslado a Tokio</span><span class="badge">Fijo</span></summary>
+    <div class="contenido"><p class="hotel">🏨 Alojamiento: Tokio</p></div>
+  </details>
+</div>
+
+<!-- ===================== TOKIO ===================== -->
+<div class="etapa">
+  <div class="etapa-titulo">🇯🇵 Tokio <small>17–22 jul</small></div>
+
+  <details class="dia">
+    <summary><span class="fecha">Vie 17 Jul</span><span class="titulo">⛩️ Senso-ji + Nakamise, Santuario Meiji, Jardines del Palacio Imperial</span><span class="badge">Fijo</span></summary>
+    <div class="contenido"><p class="hotel">🏨 Alojamiento: Grand Prince Hotel Takanawa</p></div>
+  </details>
+
+  <details class="dia libre">
+    <summary><span class="fecha">Sáb 18 Jul</span><span class="titulo">🟡 Este de Tokio (ligero): Skytree → Ryogoku → Akihabara → Marunouchi</span><span class="badge">Tentativo</span></summary>
+    <div class="contenido">
+      <p class="hotel">🏨 Alojamiento: Grand Prince Hotel Takanawa</p>
+      <p>😌 <strong>Día "ligero"</strong> a propósito — recarga de energía antes de los 3 días de "pura intensidad". Pocas paradas, todas conectadas en línea recta (Skytree → Ryogoku → Akihabara → Tokio Station son todas paradas consecutivas en la misma zona este).</p>
+      <div class="ideas">
+        <strong>🕐 Cronograma:</strong>
+        <ul>
+          <li><strong>9:30 am — Salida del hotel</strong> (Takanawa → Oshiage, ~35-40 min, línea Toei Asakusa con transbordo).</li>
+          <li><strong>10:15 am — Tokyo Skytree</strong> (1h30): mirador Tembo Deck. ⚠️ Confirmar horario de apertura exacto (suele ser 10 am). 📌 <em>Reserva recomendada:</em> comprar entrada con horario por adelantado en la <a href="https://www.tokyo-skytree.jp/en/ticket/" target="_blank">web oficial de Tokyo Skytree</a> — hasta ~12% más barato que en taquilla y evita filas.</li>
+          <li><strong>11:45 am — Almuerzo</strong> en Tokyo Solamachi / Asakusa (ver opciones abajo 👇).</li>
+          <li>🚶/🚇 10 min — caminar a Asakusa o tren corto a Ryogoku.</li>
+          <li><strong>1:15 pm — Ryogoku</strong> (1h): barrio del sumo — pasear cerca de los "heya" (establos), Sumida Hokusai Museum. ⚠️ El Edo-Tokyo Museum está en remodelación desde 2022, verificar si ya reabrió.</li>
+          <li>🚇 10 min — JR Sobu Line directo a Akihabara.</li>
+          <li><strong>2:30 pm — Akihabara</strong> (3h-3h30): tiendas de electrónica, anime/manga, retro-gaming, arcades. El bloque más largo del día — su actividad favorita, así que sin prisa.</li>
+          <li>🚇 5 min — JR Yamanote/Chuo Line a Tokyo Station.</li>
+          <li><strong>6:00 pm — Marunouchi / Tokyo Station</strong> (1h30): KITTE rooftop garden (vista de la estación iluminada de noche), arquitectura moderna.</li>
+          <li><strong>7:30 pm — Cena</strong> en Tokyo Ramen Street (dentro de la estación).</li>
+          <li>🚇 10 min — regreso al hotel (Tokyo Station → Shinagawa).</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🍴 Almuerzo — opciones budget-friendly cerca de Skytree/Asakusa:</strong>
+        <ul>
+          <li><strong>Tokyo Solamachi (food court)</strong> — variedad de teishoku, en la base del Skytree, sin necesidad de moverse.</li>
+          <li><strong>Yoshinoya / Sukiya cerca de Asakusa</strong> — gyudon/donburi, rapidísimo y muy económico (~¥500-700).</li>
+          <li><strong>Chanko nabe en Ryogoku</strong> — el guiso de los luchadores de sumo, sets de almuerzo razonables (~¥1,200-1,800), parte de la experiencia del barrio.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🍜 Cena — Tokyo Ramen Street (Tokyo Station, sótano Yaesu):</strong>
+        <ul>
+          <li>Varios locales de ramen de renombre bajo un mismo techo, ~¥900-1,300 por tazón. Buena forma de cerrar el día sin desviarse de la ruta de regreso.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🎒 Tips para Tokio (aplican para los 4 días libres del 18-21):</strong>
+        <ul>
+          <li><strong>Suica/Pasmo:</strong> es la tarjeta IC de Tokio — sirve para JR, Metro, buses y casi cualquier konbini/máquina expendedora. Se puede comprar/recargar en cualquier estación con tarjeta de crédito.</li>
+          <li><strong>Navegación:</strong> Google Maps funciona excelente en Tokio — da el andén exacto, hora de salida y tiempos de transbordo. Es la app principal para estos 4 días.</li>
+          <li><strong>Idioma:</strong> Tokio es la ciudad más "fácil" del viaje en este sentido — señalización en inglés en casi todas las estaciones y atracciones turísticas, y muchos restaurantes tienen menú con fotos o réplicas de plástico en la vitrina. Para lo que no, <strong>Google Translate (modo cámara)</strong> traduce carteles/menús en tiempo real — es el mejor respaldo para los días sin guía.</li>
+          <li><strong>Horario de trenes:</strong> el servicio empieza ~5:00 am y termina ~12:00-12:30 am. El día 21 sale temprano (7am) — sin problema, ya habrá trenes corriendo.</li>
+          <li><strong>Efectivo vs tarjeta:</strong> en Tokio las tarjetas de crédito se aceptan mucho más que en Osaka/Kioto, pero siempre es bueno tener algo de efectivo para puestos pequeños (Omoide Yokocho, mercados).</li>
+          <li><strong>Propinas:</strong> no se usan en Japón — ni en restaurantes ni en taxis.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="dia libre">
+    <summary><span class="fecha">Dom 19 Jul</span><span class="titulo">🟡 Oeste de Tokio: Harajuku → Shibuya → Daikanyama → Nakameguro → Shibuya Sky</span><span class="badge">Tentativo</span></summary>
+    <div class="contenido">
+      <p class="hotel">🏨 Alojamiento: <strong>Shinjuku</strong> (ver propuesta de zona/hoteles al final del día 21)</p>
+      <p>🧳 <strong>Check-out de Takanawa esta mañana</strong> — dejar maletas en el hotel de Shinjuku antes de salir (la mayoría las recibe aunque el check-in formal sea más tarde).</p>
+      <p>🏺 <strong>¡Buen hallazgo para hoy!</strong> Es domingo, y el <strong>Hanazono Shrine Antique Market</strong> ocurre casi todos los domingos de 6:30am a 3pm, a 5 min a pie de Shinjuku Station (Shinjuku-sanchome). ~25-40 puestos de kimonos vintage, cerámica, grabados, monedas y curiosidades — justo el tipo de "mercado de pulgas interesante" que buscaban, y queda en el camino antes de salir hacia Harajuku. Entrada gratis. ⚠️ Se cancela si llueve fuerte — revisar su cuenta de X/Twitter esa mañana.</p>
+      <div class="ideas">
+        <strong>🕐 Cronograma (todo conectado, sin saltos grandes):</strong>
+        <ul>
+          <li><strong>9:00 am — Check-out + traslado a hotel en Shinjuku</strong> (dejar maletas).</li>
+          <li>🚶 5 min a pie.</li>
+          <li><strong>9:15 am — Hanazono Shrine Antique Market</strong> (45 min): mercado de antigüedades/pulgas, gratis, ambiente tranquilo a pasos de Kabukicho.</li>
+          <li>🚇 5 min — Yamanote Line, Shinjuku → Harajuku.</li>
+          <li><strong>10:15 am — Takeshita Street</strong> (1h): crepes (Marion Crepes / Santa Monica Crepes — esto es lo que seguramente vieron como "Noda Crepes"), tiendas de moda kawaii.</li>
+          <li>🚶 20-30 min — Cat Street (moda indie, menos saturado que Takeshita) caminando hacia Shibuya.</li>
+          <li><strong>11:45 am — Shibuya Crossing + Hachiko</strong> (30 min): el cruce más famoso del mundo, foto obligada.</li>
+          <li><strong>12:30 pm — Almuerzo</strong> en Shibuya (ver opciones abajo 👇).</li>
+          <li>🚶 15 min a pie o 1 estación.</li>
+          <li><strong>2:00 pm — Daikanyama</strong> (1h15): boutiques de diseño, la famosa librería Tsutaya, ambiente relajado.</li>
+          <li>🚶 15 min a pie.</li>
+          <li><strong>3:30 pm — Nakameguro</strong> (1h): paseo por el canal, cafés de diseño.</li>
+          <li>🚇 10 min — regreso a Shibuya.</li>
+          <li><strong>5:00 pm — Shibuya Sky</strong> (1h-1h30): mirador en azotea, atardecer (~7 pm en julio). 📌 <em>Reserva OBLIGATORIA con horario:</em> <a href="https://www.shibuya-scramble-square.com/sky/" target="_blank">web oficial de Shibuya Sky</a>. Los tickets se liberan 4 semanas antes y los horarios de atardecer se agotan rápido — comprar apenas se abra la ventana. Precio: ¥3,000 (antes de 3pm) / ¥3,700 (después de 3pm).</li>
+          <li><strong>7:30 pm — Cena</strong> en Shibuya.</li>
+          <li>🚇 5 min — Shibuya → Shinjuku, al hotel.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🍴 Almuerzo — opciones budget-friendly en Shibuya:</strong>
+        <ul>
+          <li><strong>Ichiran Ramen Shibuya</strong> — ramen en cabinas individuales, ~¥1,000-1,300, experiencia clásica.</li>
+          <li><strong>Genki Sushi</strong> — kaiten-zushi (sushi por banda/pedido en tablet), divertido y económico (~¥150-300 por plato).</li>
+          <li><strong>CoCo Ichibanya</strong> — curry japonés personalizable, porciones grandes, muy budget-friendly (~¥800-1,000).</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🎒 Tip del día:</strong>
+        <ul>
+          <li>Hoy es el día con más "saltos" de zona — guardar el QR de Shibuya Sky con capturas de pantalla (por si el wifi falla justo en la entrada).</li>
+          <li>Daikanyama/Nakameguro son más residenciales — menos konbinis que en Shibuya, así que es buen momento para tener algo de efectivo/Suica cargado desde la mañana.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="dia libre">
+    <summary><span class="fecha">Lun 20 Jul</span><span class="titulo">🟡 Odaiba: Miraikan → DiverCity (Gundam) → 🏮 Festival de Linternas ⚠️ feriado (Umi no Hi)</span><span class="badge">Tentativo</span></summary>
+    <div class="contenido">
+      <p class="hotel">🏨 Alojamiento: Shinjuku</p>
+      <p>⚠️ <strong>Feriado nacional (Marine Day)</strong>: esperar más gente que un lunes normal, sobre todo de tarde/noche en Odaiba por el festival. Llegar temprano ayuda.</p>
+      <div class="ideas">
+        <strong>🕐 Cronograma (todo en la misma zona — Odaiba/Aomi):</strong>
+        <ul>
+          <li><strong>9:30 am — Salida del hotel</strong> (Shinjuku → Odaiba, ~30-35 min vía línea Rinkai o Yurikamome).</li>
+          <li><strong>10:15 am — Miraikan</strong> (2h): museo nacional de ciencia emergente, exhibiciones interactivas. 📌 <em>Reserva opcional:</em> entradas con horario por la <a href="https://www.miraikan.jst.go.jp/en/" target="_blank">web oficial de Miraikan</a> — recomendable en feriado, aunque normalmente se puede comprar en taquilla.</li>
+          <li><strong>12:30 pm — Almuerzo</strong> en DECKS Tokyo Beach / Aqua City (ver opciones abajo 👇).</li>
+          <li>🚶 10-15 min a pie.</li>
+          <li><strong>2:00 pm — DiverCity Tokyo Plaza</strong> (1h30): la estatua gigante de RX-78 Gundam (gratis, foto obligada), tiendas.</li>
+          <li><strong>3:30 pm — Odaiba Marine Park / playa</strong> (tiempo libre, 2-3h): paseo, vista al Rainbow Bridge, descanso antes del festival.</li>
+          <li><strong>~6:30 pm — 🏮 Festival de Linternas</strong> (Odaiba Seaside Park): encendido de miles de velas/faroles con el Rainbow Bridge de fondo. ⚠️ Fecha histórica = fin de semana de Marine Day (Dom-Lun); confirmar fecha oficial 2026 más cerca de la fecha en <a href="https://www.tokyo-odaiba.net/event/" target="_blank">tokyo-odaiba.net (eventos)</a>. 📌 <em>Opcional de pago:</em> "lanzamiento de farol al cielo" ~¥6,980 por grupo de hasta 4 personas — si lo quieren, normalmente se reserva el mismo día en el lugar.</li>
+          <li>🚇 30-35 min — regreso al hotel en Shinjuku.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🍴 Almuerzo — opciones budget-friendly en los malls de Odaiba:</strong>
+        <ul>
+          <li><strong>DECKS Tokyo Beach (food court)</strong> — variedad, vista al mar, precios de mall (~¥900-1,400).</li>
+          <li><strong>Aqua City Odaiba</strong> — cadenas de ramen/udon, opciones para todos los gustos.</li>
+          <li><strong>DiverCity food court</strong> — práctico si quieren comer cerca del Gundam antes/después de la foto.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🎒 Tip del día:</strong>
+        <ul>
+          <li>Por ser feriado, los trenes hacia Odaiba (Yurikamome/Rinkai) pueden ir más llenos de lo normal — salir con tiempo extra.</li>
+          <li>Odaiba es zona de playa/sol — protector solar y algo para cubrirse, sobre todo en las 2-3h de tiempo libre de la tarde.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="dia libre">
+    <summary><span class="fecha">Mar 21 Jul</span><span class="titulo">🟡 Toyosu (sushi + teamLab) → Shinjuku Gyoen → Shimokitazawa → Shinjuku de noche</span><span class="badge">Tentativo</span></summary>
+    <div class="contenido">
+      <p class="hotel">🏨 Alojamiento: Shinjuku</p>
+      <p>🔥 <strong>El día de "pura intensidad"</strong> — arranca temprano (Toyosu solo abre lun-sáb, así que el martes es ideal) y cierra de noche en Shinjuku.</p>
+      <div class="ideas">
+        <strong>🕐 Cronograma:</strong>
+        <ul>
+          <li><strong>7:00 am — Salida del hotel</strong> hacia Mercado de Toyosu (~35-40 min desde Shinjuku).</li>
+          <li><strong>7:45 am — Desayuno de sushi en Toyosu Market</strong> (ver opciones abajo 👇). ⚠️ Abierto lun-sáb, cerrado domingos/feriados/algunos miércoles — por eso va el martes.</li>
+          <li>🚶 5-10 min a pie (mismo complejo).</li>
+          <li><strong>9:30 am — teamLab Planets (Toyosu)</strong> (2h): arte digital inmersivo, descalzo, instalaciones con agua. 📌 <em>Reserva OBLIGATORIA con horario</em> en la <a href="https://teamlabplanets.dmm.com/en" target="_blank">web oficial (DMM)</a> — se agota con frecuencia, comprar con varias semanas de anticipación.</li>
+          <li>🚇 35-40 min — Toyosu → Shinjuku.</li>
+          <li><strong>12:30 pm — Almuerzo</strong> en Shinjuku (ver opciones abajo 👇).</li>
+          <li><strong>2:00 pm — Shinjuku Gyoen</strong> (1h30): jardín tradicional, contraste verde en medio de rascacielos.</li>
+          <li>🚇 6 min — Odakyu Line directo, Shinjuku → Shimokitazawa.</li>
+          <li><strong>4:00 pm — Shimokitazawa</strong> (2h): tiendas vintage, discos, callecitas con bares pequeños.</li>
+          <li>🚇 6 min — regreso a Shinjuku.</li>
+          <li><strong>6:30 pm — Shinjuku de noche</strong>: Omoide Yokocho (yakitori en callejones retro, cena), cabeza de Godzilla (Toho Building), luces de Kabukicho.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🍴 Desayuno — opciones en Toyosu Market:</strong>
+        <ul>
+          <li><strong>Yamazaki Sushi</strong> — más accesible que los clásicos de Tsukiji, ~¥3,000-4,000/persona, chirashi muy recomendado.</li>
+          <li><strong>Restaurante de teishoku dentro del mercado</strong> — opción más económica (~¥1,000-1,500) si el sushi de ¥3,000+ se sale del presupuesto del grupo.</li>
+          <li><strong>Sushidai / Daiwa Sushi</strong> — los más famosos, pero colas largas; ir apenas abre (5-6am) si quieren intentarlo.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🍴 Almuerzo — opciones budget-friendly en Shinjuku:</strong>
+        <ul>
+          <li><strong>Omoide Yokocho (de día)</strong> — algunos puestos abren para almuerzo, yakitori/soba económico.</li>
+          <li><strong>Tsunahachi</strong> — tempura tradicional, sets de almuerzo accesibles.</li>
+          <li><strong>Food court de Shinjuku Station (NEWoMan / Lumine)</strong> — variedad y A/C, práctico antes de Shinjuku Gyoen.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🎒 Tip del día:</strong>
+        <ul>
+          <li>Salida 7am: confirmar la noche anterior que el hotel pueda dar desayuno "para llevar" o resolver con konbini (abren 24h) si nadie quiere madrugar tanto para comer.</li>
+          <li>teamLab Planets es <strong>descalzo y con instalaciones de agua</strong> — llevar ropa que se pueda mojar hasta la rodilla y una toalla pequeña/bolsa para los zapatos.</li>
+          <li>Shimokitazawa tiene mucha menos señalización en inglés que Shibuya/Shinjuku — Google Translate cámara es útil aquí para los letreros de tiendas vintage.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <div class="aviso" style="margin-top:16px;">
+    <strong>🏨 Hospedaje del 19 al 21 de julio (2 habitaciones dobles) — Zona: Shinjuku</strong>
+    <p style="margin:8px 0;">Mejor "hub" para estos 3 días: 1 estación de Harajuku/Shibuya (día 19), ~30 min a Odaiba (día 20), conexión directa a Toyosu y Shimokitazawa (día 21), y buses/trenes directos a ambos aeropuertos para el día 22.</p>
+    <strong>Opciones budget-friendly (cerca de Shinjuku-eki / Nishi-Shinjuku, 5-10 min a pie) — con link de reserva:</strong>
+    <ul>
+      <li><strong>APA Hotel Shinjuku-Kabukicho Tower</strong> — <a href="https://www.apahotel.com/hotel/tokyo/04_shinjyuku-kabukicho/" target="_blank">sitio oficial</a> | <a href="https://www.booking.com/hotel/jp/apa-shinjuku-kabukicho.html" target="_blank">Booking.com</a></li>
+      <li><strong>Shinjuku Washington Hotel</strong> — <a href="https://washington-hotels.jp/shinjuku/" target="_blank">sitio oficial</a> | <a href="https://www.booking.com/hotel/jp/shinjuku-washington.html" target="_blank">Booking.com</a></li>
+      <li><strong>Hotel Sunroute Plaza Shinjuku</strong> — <a href="https://www.sunroute-plaza-shinjuku.com/" target="_blank">sitio oficial</a> | <a href="https://www.booking.com/hotel/jp/sunroute-plaza-shinjuku.html" target="_blank">Booking.com</a></li>
+      <li><strong>Henn na Hotel Shinjuku Kabukicho</strong> — <a href="https://www.hennnahotel.com/shinjuku-kabukicho/en/" target="_blank">sitio oficial</a> | <a href="https://www.booking.com/hotel/jp/henn-na-shinjuku-kabukicho.html" target="_blank">Booking.com</a></li>
+    </ul>
+    <p style="margin:8px 0; font-size:13px; color:var(--ink-soft);">💡 Tip: comparen precio directo del sitio oficial vs Booking.com/Agoda — a veces el oficial trae descuento por reserva anticipada o desayuno incluido que no aparece en los agregadores. Verifiquen también que el cuarto sea "twin" (2 camas) y no "double" (1 cama grande) si van a dormir 2 personas por habitación que no son pareja.</p>
+  </div>
+
+  <details class="dia libre">
+    <summary><span class="fecha">Mié 22 Jul</span><span class="titulo">🟡 Última mañana en Shinjuku (souvenirs) → 🛫 Salida al aeropuerto, 8:00 pm</span><span class="badge">Tentativo</span></summary>
+    <div class="contenido">
+      <p class="hotel">🏨 Check-out del hotel en Shinjuku</p>
+      <p>⏱️ <strong>Marco de tiempo:</strong> vuelo 8:00 pm → llegar al aeropuerto 5:00 pm. ⚠️ El tiempo de traslado al aeropuerto depende de si es <strong>Narita</strong> (~90 min desde Shinjuku en N'EX/Limousine bus) o <strong>Haneda</strong> (~30-45 min) — avísenme cuál es para ajustar la hora de salida del hotel. Los horarios de abajo asumen Narita (caso más exigente).</p>
+      <div class="ideas">
+        <strong>🕐 Cronograma sugerido:</strong>
+        <ul>
+          <li><strong>9:00 am — Check-out</strong>, dejar maletas en consigna del hotel o lockers de Shinjuku Station.</li>
+          <li><strong>9:30 am — Depachika (sótano de comida) de Isetan o Keio Shinjuku</strong> (1h): el lugar clásico para últimos souvenirs — té, galletas, whisky japonés, snacks únicos, todo empacado para viaje.</li>
+          <li><strong>10:45 am — Omoide Yokocho de día</strong> (1h): mucho más tranquilo que de noche, buen lugar para un último café/snack japonés sin agobio.</li>
+          <li><strong>12:00 pm — Almuerzo final</strong> en Shinjuku (ramen, soba o lo que les quede pendiente probar).</li>
+          <li><strong>1:15 pm — Recoger maletas</strong> en el hotel/lockers.</li>
+          <li><strong>1:30 pm — Salida hacia el aeropuerto</strong> (Narita Express o Limousine Bus desde Shinjuku Station, ~90 min + margen).</li>
+          <li><strong>~3:00-3:30 pm — Llegada al aeropuerto</strong>, con bastante colchón antes de las 5:00 pm.</li>
+          <li><strong>8:00 pm — 🛫 Salida del vuelo</strong> hacia Costa Rica. Fin del viaje.</li>
+        </ul>
+      </div>
+      <div class="ideas">
+        <strong>🎒 Tip del día:</strong>
+        <ul>
+          <li>Si el aeropuerto es Haneda, hay ~1h adicional de margen — se podría estirar el almuerzo o agregar una parada corta (ej. Shinjuku Gyoen si no se hizo el día 21, o una vuelta rápida a Harajuku).</li>
+          <li>Compren los souvenirs de comida/líquidos en el depachika temprano para no andar cargando bolsas pesadas todo el día.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+</div>
+
+<footer>Itinerario en construcción · días libres confirmados/tentativos marcados con su badge — pendiente: confirmar fechas exactas del Festival de Linternas y reservas con horario</footer>
+
+</div>
+</body>
+</html>
